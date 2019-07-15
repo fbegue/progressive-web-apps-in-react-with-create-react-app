@@ -1,29 +1,21 @@
 {
-  "name": "todo-pwa",
-  "version": "0.1.0",
+  "slug": "progressive-web-apps-in-react-with-create-react-app",
   "private": true,
-  "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1"
-  },
-  "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
+  "repository": "https://github.com/eggheadio-projects/progressive-web-apps-in-react-with-create-react-app",
+  "workspaces": [
+    "lessons/*"
   ],
+  "scripts": {
+    "start": "aux() { yarn workspace:log \"$(cd lessons && ls -d *\"$1\"* | head -1)\" start; }; aux",
+    "build": "aux() { yarn workspace:log \"$(cd lessons && ls -d *\"$1\"* | head -1)\" build; }; aux",
+    "test": "aux() { yarn workspace:log \"$(cd lessons && ls -d *\"$1\"* | head -1)\" test; }; aux",
+    "workspace:log": "aux() { echo \"Running $2 in $1.\" && yarn workspace \"$@\"; }; aux",
+    "clean": "rm -rf packages/*/{dist,.cache}",
+    "clean:node_modules": "find . -name node_modules | xargs rm -rf",
+    "format": "prettier **/*.{js,json,vue} -l --write --ignore-path .gitignore || :",
+    "latest": "yarn upgrade-interactive --latest && yarn upgrade -L"
+  },
   "devDependencies": {
-    "react-app-rewired": "^1.6.2"
+    "prettier": "^1.18.2"
   }
 }
