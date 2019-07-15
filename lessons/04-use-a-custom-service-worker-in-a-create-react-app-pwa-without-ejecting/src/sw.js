@@ -1,4 +1,5 @@
 
-workbox.skipWaiting()
-workbox.clientsClaim()
+console.log("In sw.js")
 
+workbox.core.skipWaiting()
+workbox.core.clientsClaim()

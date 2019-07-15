@@ -48,7 +48,7 @@ class App extends Component {
       if(items.error) {
         alert(items.error)
       } else {
-        this.setState({ items })        
+        this.setState({ items })
       }
     })
 
@@ -68,7 +68,7 @@ class App extends Component {
       if(items.error) {
         alert(items.error)
       } else {
-        this.setState({ items })        
+        this.setState({ items })
       }
     })
   }
@@ -94,17 +94,17 @@ class App extends Component {
 
           <form className="form-inline my-3" onSubmit={this.addItem}>
             <div className="form-group mb-2 p-0 pr-3 col-8 col-sm-10">
-              <input 
+              <input
                 className="form-control col-12"
                 placeholder="What do you need to do?"
                 value={this.state.todoItem}
-                onChange={e => this.setState({ 
-                  todoItem: e.target.value 
+                onChange={e => this.setState({
+                  todoItem: e.target.value
                 })}
               />
             </div>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="btn btn-primary mb-2 col-4 col-sm-2">
               Add
             </button>
@@ -112,15 +112,15 @@ class App extends Component {
 
           { this.state.loading && <p>Loading...</p> }
 
-          { 
-            !this.state.loading && this.state.items.length === 0 && 
+          {
+            !this.state.loading && this.state.items.length === 0 &&
             <div className="alert alert-secondary">
               No items - all done!
             </div>
           }
 
           {
-            !this.state.loading && this.state.items && 
+            !this.state.loading && this.state.items &&
             <table className="table table-striped">
               <tbody>
                 {
@@ -130,9 +130,9 @@ class App extends Component {
                         <td className="col-1">{i+1}</td>
                         <td className="col-10">{item.item}</td>
                         <td className="col-1">
-                          <button 
-                            type="button" 
-                            className="close" 
+                          <button
+                            type="button"
+                            className="close"
                             aria-label="Close"
                             onClick={() => this.deleteItem(item.id)}
                           >
