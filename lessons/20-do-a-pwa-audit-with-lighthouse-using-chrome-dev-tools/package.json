@@ -1,7 +1,6 @@
 {
   "name": "20-do-a-pwa-audit-with-lighthouse-using-chrome-dev-tools",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
